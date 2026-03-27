@@ -3,6 +3,7 @@
 import { Hero } from "@/sections/home/Hero";
 import { SignatureServices } from "@/sections/home/SignatureServices";
 import { Testimonials } from "@/sections/home/Testimonials";
+import { CTA } from "@/sections/home/CTA";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <SignatureServices />
       <Testimonials />
+      <CTA />
     </main>
   );
 }

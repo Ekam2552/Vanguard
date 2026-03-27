@@ -15,7 +15,7 @@ export function Testimonials() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="testimonials-section relative z-10 bg-[#050505] w-full min-h-[200vh]">
+    <section ref={sectionRef} className="testimonials-section relative z-20 bg-[#050505] w-full min-h-[200vh]">
       {/* Empty for now as requested */}
     </section>
   );

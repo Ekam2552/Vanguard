@@ -16,6 +16,8 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
+  const [isGoldSection, setIsGoldSection] = useState(false);
+
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
@@ -28,35 +30,78 @@ export const Navbar = () => {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    // Detect when navbar is over the gold section
+    const handleScroll = () => {
+      const ctaSection = document.getElementById("cta-section");
+      const testimonials = document.querySelector(".testimonials-section");
+      const footer = document.querySelector("footer");
+      const navbarBottom = 60; // Approximate bottom of navbar area
+
+      let isOverGold = false;
+
+      // Ensure Testimonials (z-20) is not currently covering the navbar
+      const isTestimonialsCovering = testimonials && testimonials.getBoundingClientRect().bottom >= navbarBottom;
+
+      if (ctaSection && !isTestimonialsCovering) {
+        const rect = ctaSection.getBoundingClientRect();
+        // Check if navbar is within CTA bounds
+        if (rect.top <= navbarBottom && rect.bottom >= navbarBottom) {
+          isOverGold = true;
+        }
+      }
+
+      // Also check if navbar is over the Footer (which is also gold)
+      if (!isOverGold && footer) {
+        const rect = footer.getBoundingClientRect();
+        if (rect.top <= navbarBottom && rect.bottom >= navbarBottom) {
+          isOverGold = true;
+        }
+      }
+      
+      setIsGoldSection(isOverGold);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <header className="fixed left-0 right-0 top-6 z-50 flex justify-center w-full px-4 mix-blend-difference pointer-events-none">
-        <div className="pointer-events-auto flex items-center justify-between rounded-full bg-white/5 px-6 py-3 ring-1 ring-white/10 backdrop-blur-md w-full max-w-sm transition-all duration-700 ease-[var(--ease-custom)]">
+      <header className="fixed left-0 right-0 top-6 z-50 flex justify-center w-full px-4 pointer-events-none mix-blend-difference">
+        <div className={clsx(
+          "pointer-events-auto flex items-center justify-between rounded-full px-6 py-3 ring-1 ring-white/10 backdrop-blur-md w-full max-w-sm transition-all duration-700 ease-[var(--ease-custom)]",
+          isGoldSection 
+            ? "bg-white/20" 
+            : "bg-white/5"
+        )}>
           <Link href="/" className="text-sm font-medium tracking-widest uppercase">
             Vanguard
           </Link>
           
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="group relative flex h-6 w-6 flex-col justify-center gap-1.5 focus:outline-none"
+            className="group relative flex h-6 w-6 flex-col justify-center gap-1.5 focus:outline-none cursor-pointer"
             aria-label="Toggle menu"
           >
             <span
               className={clsx(
-                "block h-px w-full bg-white transition-transform duration-700 ease-[var(--ease-custom)] origin-center",
-                isOpen && "translate-y-[7px] rotate-45"
+                "block h-0.5 w-full bg-white transition-transform duration-700 ease-[var(--ease-custom)] origin-center",
+                isOpen && "translate-y-[8px] rotate-45"
               )}
             />
             <span
               className={clsx(
-                "block h-px w-full bg-white transition-opacity duration-700 ease-[var(--ease-custom)]",
+                "block h-0.5 w-full bg-white transition-opacity duration-700 ease-[var(--ease-custom)]",
                 isOpen && "opacity-0"
               )}
             />
             <span
               className={clsx(
-                "block h-px w-full bg-white transition-transform duration-700 ease-[var(--ease-custom)] origin-center",
-                isOpen && "-translate-y-[7px] -rotate-45"
+                "block h-0.5 w-full bg-white transition-transform duration-700 ease-[var(--ease-custom)] origin-center",
+                isOpen && "-translate-y-[8px] -rotate-45"
               )}
             />
           </button>
