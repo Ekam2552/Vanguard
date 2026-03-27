@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏛️ Vanguard | High-End Interior Architecture
 
-## Getting Started
+> **"Rejecting the mundane. Embracing the profound."**
+
+Vanguard is a cinematic, mobile-first landing page designed for a premier interior design firm. The project focuses on high-end motion choreography, "Ethereal Glass" aesthetics, and a modular architectural foundation built for maximum visual impact.
+
+---
+
+## ✨ Project Vision
+
+Vanguard is designed to feel like a premium editorial magazine. It utilizes **asymmetrical grid layouts**, **mechanical layering**, and **physics-based motion** to create a digital environment that feels as meticulously crafted as the physical spaces it showcases.
+
+---
+
+## 🛠️ Technical Stack
+
+- **Framework:** [Next.js](https://nextjs.org/) (App Router, Turbopack)
+- **Animation:** [GSAP](https://greensock.com/gsap/) (ScrollTrigger, Context API)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Smooth Scrolling:** [Lenis](https://github.com/darkroomengineering/lenis)
+- **Deployment:** Vercel (Configured for high-performance asset delivery)
+
+---
+
+## 🏗️ Architectural Features
+
+### 🎞️ Cinematic Hero
+A pinned scroll experience where a focal video element expands to a full-screen background, transitioning into a word-by-word highlighted philosophy statement using GSAP's precision timing.
+
+### 🖼️ Double-Bezel Framing
+All core imagery uses a custom "Double-Bezel" design system—a nested shell-and-core structure with reactive `ring-1` and `inset shadow` layers that create a machined, physical appearance.
+
+### 🍱 Signature Services (Horizontal Triptych)
+A parallax-driven services section that collapses into a vertical row layout on mobile. Implements **Touch-First Activation** (tap-to-reveal) for accessibility on tablets and mobile devices while maintaining smooth hover states for desktop.
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── app/               # Next.js App Router (Layouts, Pages)
+├── components/        # Shared UI components (Button, SmoothScroll, Navbar)
+├── sections/          # Content sections (Hero, SignatureServices, Testimonials)
+└── lib/               # Utilities and Shared Animation logic
+
+public/
+├── home/              # Hero, Philosophy, and Service assets
+└── Gallary/           # Portfolio/Gallery assets
+```
+
+---
+
+## 🚀 Roadmap
+
+### Phase 1: Foundation (Completed)
+- [x] Cinematic Hero & Philosophy Split
+- [x] Signature Services Triptych (Responsive)
+- [x] Performance Audit (LCP & Image Optimization)
+- [x] Asset Reorganization & Path Management
+
+### Phase 2: Content & Detail (Current)
+- [/] Testimonials Section (Cinematic Entrance)
+- [ ] Portfolio Gallery (Asymmetrical Bento Grid)
+- [ ] About Page (Z-Axis Cascade)
+
+### Phase 3: Engagement
+- [ ] Contact Page (Double-Bezel Form)
+- [ ] Project-Specific Case Study Pages
+- [ ] SEO & Social Meta Tag Finalization
+
+---
+
+## ⌨️ Development
 
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The site will be live at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+© 2026 Vanguard Studio. Designed with Intent.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
