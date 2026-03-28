@@ -33,6 +33,12 @@ All core imagery uses a custom "Double-Bezel" design system—a nested shell-and
 ### 🍱 Signature Services (Horizontal Triptych)
 A parallax-driven services section that collapses into a vertical row layout on mobile. Implements **Touch-First Activation** (tap-to-reveal) for accessibility on tablets and mobile devices while maintaining smooth hover states for desktop.
 
+### 🏛️ The Pedigree (Curved Infinity Carousel)
+An auto-cycling testimonial engine featuring **Dual Curved Infinity Carousels**. Logos from top-tier publications glide along editorial motion paths (Desktop) or straight horizontal tracks (Tablet/Mobile) using GSAP `MotionPathPlugin`.
+
+### ☀️ Sunlight & Resolve (The Vanguard CTA)
+A high-contrast concluding section featuring **Editorial Reveal Typography** and a custom **Double-Bezel Input System**. It utilizes GSAP stagger logic to cycle through brand pillars (*Beautiful, Timeless, Elevated*) with cinematic easing.
+
 ---
 
 ## 📂 Project Structure
@@ -41,7 +47,7 @@ A parallax-driven services section that collapses into a vertical row layout on 
 src/
 ├── app/               # Next.js App Router (Layouts, Pages)
 ├── components/        # Shared UI components (Button, SmoothScroll, Navbar)
-├── sections/          # Content sections (Hero, SignatureServices, Testimonials)
+├── sections/          # Home Page sections (Hero, Philosophy, Services, Testimonials)
 └── lib/               # Utilities and Shared Animation logic
 
 public/
@@ -59,8 +65,9 @@ public/
 - [x] Performance Audit (LCP & Image Optimization)
 - [x] Asset Reorganization & Path Management
 
-### Phase 2: Content & Detail (Current)
-- [/] Testimonials Section (Cinematic Entrance)
+### Phase 2: Content & Detail (In Progress)
+- [x] The Pedigree (Testimonials) Section — *Home Page Finalization*
+- [x] Sunlight & Resolve (CTA) Section — *Home Page Finalization*
 - [ ] Portfolio Gallery (Asymmetrical Bento Grid)
 - [ ] About Page (Z-Axis Cascade)
 
@@ -68,6 +75,7 @@ public/
 - [ ] Contact Page (Double-Bezel Form)
 - [ ] Project-Specific Case Study Pages
 - [ ] SEO & Social Meta Tag Finalization
+- [ ] Production Deployment & Performance Tuning
 
 ---
 
