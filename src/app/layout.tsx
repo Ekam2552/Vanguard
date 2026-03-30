@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   description: "High-end interior design and architectural visualization.",
 };
 
+import { LoadingProvider } from "@/context/LoadingContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,12 +31,15 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark`} style={{ colorScheme: "dark" }}>
       <body className="min-h-[100dvh] antialiased bg-[#050505] text-white selection:bg-white/20">
         <div className="noise-overlay" />
-        <SmoothScrolling>
-          <Navbar />
-          {children}
-          <Footer />
-        </SmoothScrolling>
+        <LoadingProvider>
+          <SmoothScrolling>
+            <Navbar />
+            {children}
+            <Footer />
+          </SmoothScrolling>
+        </LoadingProvider>
       </body>
     </html>
   );
 }
+

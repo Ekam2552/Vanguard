@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import { useLoading } from "@/context/LoadingContext";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -13,8 +14,11 @@ const navLinks = [
 ];
 
 export const Navbar = () => {
+  const { isLoaded } = useLoading();
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+
+
 
   const [isGoldSection, setIsGoldSection] = useState(false);
 
@@ -70,8 +74,13 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className="fixed left-0 right-0 top-6 z-50 flex justify-center w-full px-4 pointer-events-none mix-blend-difference">
+      <header className={clsx(
+        "fixed left-0 right-0 top-6 z-50 flex justify-center w-full px-4 pointer-events-none mix-blend-difference transition-all duration-1000 ease-out",
+        isLoaded ? "opacity-100 translate-y-0 delay-1000" : "opacity-0 -translate-y-4"
+      )}>
+
         <div className={clsx(
+
           "pointer-events-auto flex items-center justify-between rounded-full px-6 py-3 ring-1 ring-white/10 backdrop-blur-md w-full max-w-sm transition-all duration-700 ease-[var(--ease-custom)]",
           isGoldSection 
             ? "bg-white/20" 

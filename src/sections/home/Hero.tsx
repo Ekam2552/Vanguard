@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/Button";
 import Image from "next/image";
+import { useLoading } from "@/context/LoadingContext";
 
 export function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -58,7 +59,12 @@ export function Hero() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  const { isLoaded } = useLoading();
+
   useEffect(() => {
+    // Only animate in once the loader is completely finished
+    if (!isLoaded) return;
+
     const ctx = gsap.context(() => {
       // --- Hero entrance: text lines ---
       gsap.fromTo(
@@ -71,7 +77,7 @@ export function Hero() {
           duration: 1.4,
           stagger: 0.08,
           ease: "power4.out",
-          delay: 0.3,
+          delay: 0.2, // Slightly reduced delay now that it's synced with reveal
         }
       );
 
@@ -79,14 +85,14 @@ export function Hero() {
       gsap.fromTo(
         videoWrapperRef.current,
         { scale: 0.85, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1.8, ease: "power3.out", delay: 0.5 }
+        { scale: 1, opacity: 1, duration: 1.8, ease: "power3.out", delay: 0.4 }
       );
 
       // --- Hero entrance: radial glow breathes in ---
       gsap.fromTo(
         glowRef.current,
         { scale: 0.6, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 2.2, ease: "power2.out", delay: 0.4 }
+        { scale: 1, opacity: 1, duration: 2.2, ease: "power2.out", delay: 0.3 }
       );
 
       // --- Hero entrance: metadata stagger ---
@@ -99,7 +105,7 @@ export function Hero() {
           duration: 1,
           stagger: 0.12,
           ease: "power3.out",
-          delay: 1.2,
+          delay: 1.0,
         }
       );
 
@@ -107,9 +113,16 @@ export function Hero() {
       gsap.fromTo(
         ".scroll-indicator",
         { opacity: 0, y: -10 },
-        { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 1.6 }
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 1.4 }
       );
+    }, heroRef);
 
+    return () => ctx.revert();
+  }, [isLoaded]);
+
+  useEffect(() => {
+    // Secondary effect for scroll-triggered pinning/content stays separate from entrance sync
+    const ctx = gsap.context(() => {
       // --- Scroll indicator pulse loop ---
       gsap.to(".scroll-line", {
         scaleY: 1,
@@ -123,6 +136,7 @@ export function Hero() {
       // ─────────────────────────────────────────────────
       // PINNED SCROLL TIMELINE (Hero → Video → Philosophy)
       // ─────────────────────────────────────────────────
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: heroRef.current,

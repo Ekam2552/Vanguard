@@ -1,9 +1,17 @@
 "use client";
 
-import { useEffect, ReactNode } from "react";
+import { useEffect, useRef, useState, useCallback, ReactNode } from "react";
 import Lenis from "lenis";
+import { Loader } from "./Loader";
 
 export default function SmoothScrolling({ children }: { children: ReactNode }) {
+  const [isLoading, setIsLoading] = useState(true);
+  const lenisRef = useRef<Lenis | null>(null);
+
+  const handleFinished = useCallback(() => {
+    setIsLoading(false);
+  }, []);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -14,6 +22,8 @@ export default function SmoothScrolling({ children }: { children: ReactNode }) {
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
+
+    lenisRef.current = lenis;
 
     function raf(time: number) {
       lenis.raf(time);
@@ -27,5 +37,25 @@ export default function SmoothScrolling({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  return <>{children}</>;
+  useEffect(() => {
+    if (lenisRef.current) {
+      if (!isLoading) {
+        lenisRef.current.start();
+      } else {
+        lenisRef.current.stop();
+      }
+    }
+  }, [isLoading]);
+
+  return (
+    <>
+      <Loader onFinished={handleFinished} />
+      <div>
+        {children}
+      </div>
+    </>
+
+  );
 }
+
+
