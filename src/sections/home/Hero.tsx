@@ -258,12 +258,6 @@ export function Hero() {
         0.5
       );
 
-      // ── Phase 5 (0.85–1.0): Fade out philosophy before unpin ──
-      tl.to(
-        philosophyRef.current,
-        { opacity: 0, y: -40, filter: "blur(6px)", duration: 0.1, ease: "power2.inOut" },
-        0.9
-      );
     }, heroRef);
 
     return () => ctx.revert();
