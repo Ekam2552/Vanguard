@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark`} style={{ colorScheme: "dark" }}>
-      <body className="min-h-[100dvh] antialiased bg-[#050505] text-white selection:bg-white/20">
+      <body className="min-h-[100dvh] antialiased bg-[#050505] text-white selection:bg-white/20 overflow-x-hidden">
         <div className="noise-overlay" />
         <LoadingProvider>
           <SmoothScrolling>
