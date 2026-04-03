@@ -45,19 +45,29 @@ An auto-cycling testimonial engine featuring **Dual Curved Infinity Carousels**.
 ### ☀️ Sunlight & Resolve (The Vanguard CTA)
 A high-contrast concluding section featuring **Editorial Reveal Typography** and a custom **Double-Bezel Input System**. It cycles through brand pillars (*Beautiful, Timeless, Elevated*) with cinematic easing.
 
+### 📜 About Page (The Narrative)
+A cinematic journey through the studio's philosophy, process, and people. It utilizes **Z-Axis Stacking** and **Horizontal Parallax** to tell a cohesive brand story.
+
+- **The Manifesto:** An editorial-led introduction using large-scale fluid typography and GSAP `clip-path` image reveals. Optimized with responsive gutters for balanced spatial rhythm on all devices.
+- **Design Ethos (Dynamic Stacking):** A scroll-pinned "Deck" of cards where each pillar of the studio's philosophy slides up and overlaps the previous ones with 3D scaling and blur effects.
+- **The Collective (Team):** A high-velocity horizontal gallery with deep internal parallax. It showcases the studio's specialists through "Double-Bezel" portrait cards and synchronized name-reveal animations.
+
 ---
 
 ## 📂 Project Structure
 
 ```text
 src/
-├── app/               # Next.js App Router (Layouts, Pages)
+├── app/               # Next.js App Router (Layouts, Pages like /about)
 ├── components/        # Shared UI components (Button, SmoothScroll, Navbar)
-├── sections/          # Home Page sections (Hero, Philosophy, Services, Testimonials)
+├── sections/          # Page-specific components
+│   ├── home/          # Hero, Philosophy, Services, Testimonials
+│   └── about/         # Manifesto, Design Ethos, Team
 └── lib/               # Utilities and Shared Animation logic
 
 public/
 ├── home/              # Hero, Philosophy, and Service assets
+├── about/             # Manifesto and Team portrait assets
 └── Gallary/           # Portfolio/Gallery assets
 ```
 
@@ -75,7 +85,7 @@ public/
 - [x] The Pedigree (Testimonials) Section
 - [x] Sunlight & Resolve (CTA) Section
 - [x] Portfolio Gallery (3D Carousel & Asymmetrical Grid)
-- [x] About Page (Z-Axis Cascade)
+- [x] About Page (Manifesto, Stacking Ethos, & Horizontal Team)
 
 ### Phase 3: Engagement
 - [ ] Project-Specific Case Study Pages

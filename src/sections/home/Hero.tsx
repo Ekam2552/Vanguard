@@ -271,7 +271,7 @@ export function Hero() {
       {/* Radial glow orb */}
       <div
         ref={glowRef}
-        className="pointer-events-none absolute z-0"
+        className="pointer-events-none absolute z-0 opacity-0"
         style={{
           width: "60vw",
           height: "60vw",
@@ -292,30 +292,30 @@ export function Hero() {
       >
         {/* Eyebrow tag */}
         <div className="overflow-hidden mb-8">
-          <span className="hero-text-line block text-[10px] uppercase tracking-[0.4em] text-white/30 font-medium">
+          <span className="hero-text-line block text-[10px] uppercase tracking-[0.4em] text-white/30 font-medium opacity-0">
             Vol. 01 — Interior Architecture
           </span>
         </div>
 
         {/* Thin accent rule */}
         <div className="overflow-hidden mb-8 w-12">
-          <div className="hero-text-line h-px w-full bg-white/20" />
+          <div className="hero-text-line h-px w-full bg-white/20 opacity-0" />
         </div>
 
         <h1 className="text-[24vw] sm:text-8xl lg:text-[10rem] font-light tracking-tighter leading-[0.8] md:leading-[0.92]">
           <div className="overflow-hidden py-1">
-            <div className="hero-text-line whitespace-nowrap">Ethereal</div>
+            <div className="hero-text-line whitespace-nowrap opacity-0">Ethereal</div>
           </div>
           <div className="overflow-hidden py-1">
-            <div className="hero-text-line whitespace-nowrap">Spaces</div>
+            <div className="hero-text-line whitespace-nowrap opacity-0">Spaces</div>
           </div>
         </h1>
 
         <div className="overflow-hidden mt-8 w-24">
-          <div className="hero-text-line h-px w-full bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+          <div className="hero-text-line h-px w-full bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0" />
         </div>
 
-        <div className="mt-10 hero-text-line">
+        <div className="mt-10 hero-text-line opacity-0">
           <Button href="/work">Explore Portfolio</Button>
         </div>
       </div>
@@ -326,22 +326,22 @@ export function Hero() {
         className="absolute inset-0 z-30 pointer-events-none p-8 md:p-12 hidden md:flex flex-col justify-between"
       >
         <div className="flex justify-between items-start">
-          <div className="meta-item text-[9px] uppercase tracking-[0.3em] font-mono text-white/25 leading-relaxed">
+          <div className="meta-item text-[9px] uppercase tracking-[0.3em] font-mono text-white/25 leading-relaxed opacity-0">
             Vanguard Studio<br />
             <span className="text-white/15">Architectural Visuals</span>
           </div>
-          <div className="meta-item text-[9px] uppercase tracking-[0.3em] font-mono text-white/25 text-right">
+          <div className="meta-item text-[9px] uppercase tracking-[0.3em] font-mono text-white/25 text-right opacity-0">
             Est. 2026<br />
             <span className="text-white/15">San Francisco, CA</span>
           </div>
         </div>
 
         <div className="flex justify-between items-end">
-          <div className="meta-item text-[9px] uppercase tracking-[0.3em] font-mono text-white/25">
+          <div className="meta-item text-[9px] uppercase tracking-[0.3em] font-mono text-white/25 opacity-0">
             37.7749° N<br />
             <span className="text-white/15">122.4194° W</span>
           </div>
-          <div className="scroll-indicator flex flex-col items-center gap-2">
+          <div className="scroll-indicator flex flex-col items-center gap-2 opacity-0">
             <span className="text-[9px] uppercase tracking-[0.3em] font-mono text-white/25">Scroll</span>
             <div className="relative h-8 w-px bg-white/10 overflow-hidden">
               <div className="scroll-line absolute top-0 left-0 w-full h-full bg-white/40 origin-top scale-y-0" />
@@ -353,7 +353,7 @@ export function Hero() {
       {/* Video element */}
       <div
         ref={videoWrapperRef}
-        className="absolute z-10 overflow-hidden rounded-[2.5rem] p-1.5 bg-white/[0.03] ring-1 ring-white/[0.08]"
+        className="absolute z-10 overflow-hidden rounded-[2.5rem] p-1.5 bg-white/[0.03] ring-1 ring-white/[0.08] opacity-0"
         style={{
           width: "clamp(300px, 32vw, 520px)",
           height: "clamp(200px, 22vw, 360px)",
